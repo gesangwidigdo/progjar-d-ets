@@ -28,7 +28,7 @@ class ProcessTheClient:
         logging.warning(f"Handling client {self.address}")
         data_rcv = ""
         while True:
-            data = self.connection.recv(4096)
+            data = self.connection.recv(1024*1024)
             if data:
                 decoded_chunk = data.decode()
                 logging.warning(f"potongan data diterima: {decoded_chunk[:80]}...")

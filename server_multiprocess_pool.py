@@ -14,6 +14,8 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+MAX_WORKER=1
+
 # Fungsi worker yang akan dijalankan oleh pool
 def handle_client(conn, address):
     # client_address, data = payload
@@ -74,7 +76,7 @@ class Server:
 
 
 def main():
-    server = Server(ipaddress='0.0.0.0', port=42331, worker_count=5)
+    server = Server(ipaddress='0.0.0.0', port=42331, worker_count=MAX_WORKER)
     server.run()
 
 
